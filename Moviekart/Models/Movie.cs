@@ -1,4 +1,5 @@
 ﻿using Moviekart.Data;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Moviekart.Models
 {
@@ -12,5 +13,18 @@ namespace Moviekart.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public MovieCategory Category { get; set; }
+
+        //relationships
+        public List<Actor_Movie> Actor_Movies { get; set; }
+
+        //cinema
+        public int CinemaId { get; set; }
+        [ForeignKey("CinemaId")]
+        public Cinema Cinema { get; set; }
+
+        //producer
+        public int ProducerId { get; set; }
+        [ForeignKey("ProducerId")]
+        public Producer Producer { get; set; }
     }
 }

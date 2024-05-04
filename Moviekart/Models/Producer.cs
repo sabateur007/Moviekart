@@ -12,5 +12,8 @@ namespace Moviekart.Models
         public string ProfilePictureURL { get; set; }
 
         public string Bio { get; set; }
+
+        //relationships
+        public List<Movie> Movies { get; set; }
     }
 }
