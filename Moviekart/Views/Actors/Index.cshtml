@@ -1,20 +1,37 @@
-﻿@model IEnumerable<Actor>
-
+﻿<h1>hi welcome of actors index view </h1>
+@model IEnumerable<Actor>
 @{
-    ViewData["Title"] = "List of actors";
+    ViewData["Title"] = "List of Actors";
 }
-
-<div class = "row">
+<div class="row">
     <div class="col-md-8 offset-md-2">
-        <table>
+        <table class="table">
             <thead>
-                <tr>
-                    <th>@Html.DisplayNameFor(model=>model.ProfilePictureURL)</th>
-                </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model=> model.ProfilePictureURL)</th>
+                <th>@Html.DisplayNameFor(model=> model.FullName)</th>
+                <th>@Html.DisplayNameFor(model=> model.Bio)</th>
+                <th>Actions</th>
+            </tr>
             </thead>
 
-            <tbody></tbody>
-            
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="align-middle">
+                            <img class="rounded-bottom" src="@item.ProfilePictureURL" alt="@item.FullName" style="max-width: 150px"/>
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    
+                }
+            </tbody>
+            >
         </table>
 
     </div>

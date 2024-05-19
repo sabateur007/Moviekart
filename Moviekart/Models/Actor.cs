@@ -13,7 +13,7 @@ namespace Moviekart.Models
         [Display(Name = "Profile Picture URL")]
         public string ProfilePictureURL { get; set; }
 
-        [Display(Name = "Bio")]
+        [Display(Name = "Biography")]
         public string Bio { get; set;}
 
         //relationships
