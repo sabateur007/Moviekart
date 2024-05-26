@@ -5,7 +5,7 @@ namespace Moviekart.Models
     public class Producer
     {
         [Key]
-        public int ActorID { get; set; }
+        public int ProducerID { get; set; }
 
         public string FullName { get; set; }
 

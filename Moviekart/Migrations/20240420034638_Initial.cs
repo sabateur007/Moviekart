@@ -43,7 +43,7 @@ namespace Moviekart.Migrations
                 name: "Producers",
                 columns: table => new
                 {
-                    ActorID = table.Column<int>(type: "int", nullable: false)
+                    ProducerID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProfilePictureURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -51,7 +51,7 @@ namespace Moviekart.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Producers", x => x.ActorID);
+                    table.PrimaryKey("PK_Producers", x => x.ProducerID);
                 });
 
             migrationBuilder.CreateTable(

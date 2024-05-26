@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Moviekart.Data;
 
 namespace Moviekart.Controllers
@@ -10,10 +11,10 @@ namespace Moviekart.Controllers
         {
                 _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var data = _context.Producers.ToList();
-            return View();
+            var AllProducers = await _context.Producers.ToListAsync();
+            return View(AllProducers);
         }
     }
 }

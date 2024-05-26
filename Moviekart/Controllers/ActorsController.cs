@@ -1,18 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Moviekart.Data;
+using Moviekart.Data.Services;
 
 namespace Moviekart.Controllers
 {
     public class ActorsController : Controller
     {
-        private readonly AppDbContext _context;
-        public ActorsController(AppDbContext context)
+        IActorsService _actorsService;
+        public ActorsController( IActorsService actorsService)
         {
-            _context = context;  
+            
+            _actorsService = actorsService;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var data  = _context.Actors.ToList();
+            var data  = await _actorsService.GetAllActors();
             return View(data);
         }
     }

@@ -136,11 +136,11 @@ namespace Moviekart.Migrations
 
             modelBuilder.Entity("Moviekart.Models.Producer", b =>
                 {
-                    b.Property<int>("ActorID")
+                    b.Property<int>("ProducerID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ActorID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProducerID"), 1L, 1);
 
                     b.Property<string>("Bio")
                         .IsRequired()
@@ -154,7 +154,7 @@ namespace Moviekart.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ActorID");
+                    b.HasKey("ProducerID");
 
                     b.ToTable("Producers");
                 });
