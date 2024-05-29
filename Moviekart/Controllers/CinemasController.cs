@@ -13,7 +13,7 @@ namespace Moviekart.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var AllCinemas = _context.Cinemas.ToListAsync();    
+            var AllCinemas = await _context.Cinemas.ToListAsync();    
             return View(AllCinemas);
         }
     }
