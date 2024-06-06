@@ -13,7 +13,8 @@ namespace Moviekart.Data.Services
         }
         public void Add(Actor actor)
         {
-            throw new NotImplementedException();
+            _context.Actors.Add(actor);
+            _context.SaveChanges();
         }
 
         public void delete(int id)
@@ -21,9 +22,10 @@ namespace Moviekart.Data.Services
             throw new NotImplementedException();
         }
 
-        public Actor GetActorById(int id)
+        public async Task<Actor> GetActorById(int id)
         {
-            throw new NotImplementedException();
+            var result =  await _context.Actors.FirstOrDefaultAsync(n=>n.ActorID == id);
+            return result;
         }
 
         public Actor GetActorByName(string name)

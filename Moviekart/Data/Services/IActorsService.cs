@@ -6,7 +6,7 @@ namespace Moviekart.Data.Services
     {
         Task<IEnumerable<Actor>> GetAllActors();
         Actor GetActorByName(string name);
-        Actor GetActorById(int id);
+        Task<Actor> GetActorById(int id);
         void Add(Actor actor);
         Actor update(int id, Actor NewActor);
         void delete(int id);
