@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Moviekart.Models;
 using System.Collections.Generic;
 
@@ -17,10 +19,7 @@ namespace Moviekart.Data.Services
             _context.SaveChanges();
         }
 
-        public void delete(int id)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public async Task<Actor> GetActorById(int id)
         {
@@ -28,11 +27,7 @@ namespace Moviekart.Data.Services
             return result;
         }
 
-        public Actor GetActorByName(string name)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public async Task<IEnumerable<Actor>> GetAllActors()
         {
            var result = await _context.Actors.ToListAsync();
@@ -40,9 +35,19 @@ namespace Moviekart.Data.Services
 
         }
 
-        public Actor update(int id, Actor NewActor)
+        public async Task<Actor> Update(int id, Actor NewActor)
         {
-            throw new NotImplementedException();
+            NewActor.ActorID = id;
+            _context.Update(NewActor);
+            await _context.SaveChangesAsync();
+            return NewActor;
+        }
+
+        public async Task Delete(int id)
+        {
+            var result = await GetActorById(id);
+            _context.Remove(result);
+            await _context.SaveChangesAsync();
         }
     }
 }

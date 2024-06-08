@@ -5,11 +5,11 @@ namespace Moviekart.Data.Services
     public interface IActorsService
     {
         Task<IEnumerable<Actor>> GetAllActors();
-        Actor GetActorByName(string name);
+       
         Task<Actor> GetActorById(int id);
         void Add(Actor actor);
-        Actor update(int id, Actor NewActor);
-        void delete(int id);
+        Task<Actor> Update(int id, Actor NewActor);
+        Task Delete(int id);
 
     }
 }
