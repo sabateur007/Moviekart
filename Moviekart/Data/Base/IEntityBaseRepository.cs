@@ -8,7 +8,7 @@ namespace Moviekart.Data.Base
 
         Task<T> GetById(int id);
         void Add(T entity);
-        Task<T> Update(int id, T entity);
+        Task Update(int id, T entity);
         Task Delete(int id);
     }
 }

@@ -1,19 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Moviekart.Data;
+using Moviekart.Data.Services;
 
 namespace Moviekart.Controllers
 {
     public class CinemasController : Controller
     {
-        private readonly AppDbContext _context;
-        public CinemasController(AppDbContext context)
+        private readonly ICinemasService _service;
+        public CinemasController(ICinemasService service)
         {
-            _context = context;
+            _service = service;
         }
         public async Task<IActionResult> Index()
         {
-            var AllCinemas = await _context.Cinemas.ToListAsync();    
+            var AllCinemas = await _service.GetAll();    
             return View(AllCinemas);
         }
     }

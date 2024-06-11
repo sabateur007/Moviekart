@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Moviekart.Data.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace Moviekart.Models
 {
-    public class Cinema
+    public class Cinema :IEntityBase
     {
         public int Id { get; set; }
         [Display(Name = "Cinema Logo")]

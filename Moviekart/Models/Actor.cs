@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Moviekart.Data.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace Moviekart.Models
 {
-    public class Actor
+    public class Actor 
     {
         [Key]
         public int ActorID { get; set; }

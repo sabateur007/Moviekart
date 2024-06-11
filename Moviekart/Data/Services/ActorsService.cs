@@ -9,8 +9,8 @@ namespace Moviekart.Data.Services
     public class ActorsService : IActorsService
     {
         private readonly AppDbContext _context;
-        public ActorsService(AppDbContext context) 
-        { 
+        public ActorsService(AppDbContext context)
+        {
             _context = context;
         }
         public void Add(Actor actor)
@@ -19,18 +19,18 @@ namespace Moviekart.Data.Services
             _context.SaveChanges();
         }
 
-        
+
 
         public async Task<Actor> GetActorById(int id)
         {
-            var result =  await _context.Actors.FirstOrDefaultAsync(n=>n.ActorID == id);
+            var result = await _context.Actors.FirstOrDefaultAsync(n => n.ActorID == id);
             return result;
         }
 
-        
+
         public async Task<IEnumerable<Actor>> GetAllActors()
         {
-           var result = await _context.Actors.ToListAsync();
+            var result = await _context.Actors.ToListAsync();
             return result;
 
         }
