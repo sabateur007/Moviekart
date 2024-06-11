@@ -1,10 +1,11 @@
 ﻿using Moviekart.Data;
+using Moviekart.Data.Base;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Moviekart.Models
 {
-    public class Movie
+    public class Movie : IEntityBase
     {
         public int Id { get; set; }
         [Display(Name ="Title")]
